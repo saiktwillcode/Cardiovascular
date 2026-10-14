@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CardioTwin 3D — Cardiovascular Risk & Multi-Vessel Stenosis Intelligence</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Top Medical App Navigation -->
+    <header class="app-header">
+        <div class="brand-section">
+            <div class="brand-icon">🫀</div>
+            <div>
+                <h1 class="brand-title">CARDIOTWIN <span class="brand-badge">3D DIGITAL TWIN</span></h1>
+                <p class="brand-subtitle">Multimodal AI Hackathon 2026 • Track A: Multi-Disease Cardiovascular Risk & Preventive 3D Exercise</p>
+            </div>
+        </div>
+        <div class="header-actions">
+            <div class="status-indicator">
+                <span class="status-dot pulse-online"></span>
+                <span class="status-text">ML Inference & 3D Physics Online</span>
+            </div>
+            <button id="view-metrics-btn" class="header-btn">
+                <span class="btn-icon">📊</span> Model Validation & Metrics
+            </button>
+        </div>
+    </header>
+
+    <!-- Prominent Clinical Safety Disclaimer -->
+    <div class="safety-banner">
+        <span class="alert-icon">⚠️</span>
+        <div class="safety-text">
+            <strong>CLINICAL SAFETY NOTICE:</strong> This system is an AI decision-support and educational visualization prototype. Predictions are statistical estimates based on clinical features and are <strong>not</strong> a substitute for formal diagnostic coronary angiography, ECG interpretation, or licensed medical evaluation.
+        </div>
+    </div>
+
+    <!-- Main Workspace Grid -->
+    <main class="main-layout">
+        <!-- LEFT: Interactive 3D Anatomical Viewport -->
+        <section class="viewport-panel">
+            <div class="viewport-header">
+                <!-- Mode Switcher -->
+                <div class="mode-switcher">
+                    <button class="mode-btn active" id="mode-heart-btn" title="View 3D Anatomical Cardiac Twin">
+                        <span>🫀</span> Cardiac Twin
+                    </button>
+                    <button class="mode-btn" id="mode-exercise-btn" title="View 3D Animated Preventive Exercise Lab">
+                        <span>🏃</span> Exercise Lab
+                    </button>
+                </div>
+
+                <!-- 3D Display Controls -->
+                <div class="viewport-tools">
+                    <!-- Shader Theme Selector -->
+                    <select id="theme-selector" class="theme-select" title="Switch 3D Shader Theme">
+                        <option value="biorealistic">🎨 Bio-Realistic Anatomy</option>
+                        <option value="cyber">⚡ Cyber-Neon Hologram</option>
+                        <option value="xray">📷 X-Ray Fluoroscopy</option>
+                    </select>
+
+                    <button class="tool-btn" id="toggle-sound-btn" title="Toggle Synchronized Cardiac Heartbeat Audio">
+                        <span class="tool-icon">🔇</span> Sound
+                    </button>
+                    <button class="tool-btn active" id="toggle-pulse-btn" title="Toggle Heartbeat Contraction">
+                        <span class="tool-icon">💓</span> Pulse
+                    </button>
+                    <button class="tool-btn active" id="toggle-torso-btn" title="Toggle Thoracic Cage Context">
+                        <span class="tool-icon">🩻</span> Torso
+                    </button>
+                </div>
+            </div>
+
+            <!-- 3D Canvas Container -->
+            <div id="viewport-3d" class="canvas-wrapper">
+                <!-- 3D Raycaster Tooltip HUD -->
+                <div id="anatomy-tooltip" class="anatomy-tooltip" style="display: none;"></div>
+
+                <!-- Floating Camera Angle Presets (Heart Mode) -->
+                <div class="camera-presets-bar" id="camera-presets-bar">
+                    <span class="presets-label">Camera Angle:</span>
+                    <button class="cam-btn" data-angle="reset">Full View</button>
+                    <button class="cam-btn" data-angle="lad">Anterior (LAD)</button>
+                    <button class="cam-btn" data-angle="lcx">Lateral (LCX)</button>
+                    <button class="cam-btn" data-angle="rca">Inferior (RCA)</button>
+                    <button class="cam-btn" data-angle="torso">Thorax</button>
+                </div>
+
+                <!-- Floating Exercise Controls (Exercise Mode) -->
+                <div class="exercise-hud-overlay" id="exercise-hud-overlay" style="display: none;">
+                    <div class="exercise-hud-title">🏃 3D BIOMECHANICAL CARDIO SIMULATOR</div>
+                    <div class="exercise-buttons-row">
+                        <button class="ex-select-btn active" data-ex="jogging">🏃 Aerobic Jogging</button>
+                        <button class="ex-select-btn" data-ex="cycling">🚴 Cadence Cycling</button>
+                        <button class="ex-select-btn" data-ex="hiit">⚡ HIIT Jumping Jacks</button>
+                        <button class="ex-select-btn" data-ex="yoga">🧘 Vagal Yoga & Breath</button>
+                    </div>
+                    <div class="exercise-telemetry">
+                        <div class="telemetry-item">
+                            <span class="telemetry-label">VO2 Max Reserve</span>
+                            <span class="telemetry-val" id="tele-vo2">+28%</span>
+                        </div>
+                        <div class="telemetry-item">
+                            <span class="telemetry-label">Coronary Vasodilation (NO)</span>
+                            <span class="telemetry-val" id="tele-no">+45%</span>
+                        </div>
+                        <div class="telemetry-item">
+                            <span class="telemetry-label">Collateral Angiogenesis</span>
+                            <span class="telemetry-val text-success" id="tele-angio">Active Sprouting</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Dynamic Risk Legend -->
+                <div class="vessel-legend" id="vessel-legend">
+                    <div class="legend-header">Coronary Stenosis Risk Scale</div>
+                    <div class="legend-item"><span class="legend-dot green"></span> &lt;30% Low Risk / Patent</div>
+                    <div class="legend-item"><span class="legend-dot amber"></span> 30%–69% Moderate Stenosis</div>
+                    <div class="legend-item"><span class="legend-dot red"></span> ≥70% Critical / Severe Stenosis</div>
+                    <div class="legend-sub">Torsional wring contraction active. Click vessels for localized hemodynamics.</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- RIGHT: Clinical Intelligence & Explainability Dashboard -->
+        <section class="dashboard-panel">
+            <!-- Patient Case Selector -->
+            <div class="dashboard-card">
+                <div class="card-label">Benchmark Clinical Case Studies (303 UCI Cohort)</div>
+                <div class="preset-pills" id="preset-patient-pills">
+                    <!-- Populated dynamically -->
+                </div>
+                <div id="patient-vignette" class="patient-vignette">
+                    <!-- Populated dynamically -->
+                </div>
+            </div>
+
+            <!-- Overall CAD Risk & Syndrome Banner -->
+            <div class="dashboard-card risk-highlight-card">
+                <div class="risk-card-top">
+                    <div>
+                        <div class="metric-label">OVERALL CORONARY ARTERY DISEASE (CAD) RISK</div>
+                        <div class="metric-main">
+                            <span id="overall-cad-pct" class="risk-large-pct">--%</span>
+                            <span id="overall-cad-status" class="risk-badge">Calculating...</span>
+                        </div>
+                    </div>
+                    <div class="syndrome-container">
+                        <div class="metric-label">VASCULAR SYNDROME</div>
+                        <div id="vessel-syndrome-badge" class="syndrome-badge">--</div>
+                    </div>
+                </div>
+                <div class="progress-track">
+                    <div id="overall-cad-bar" class="progress-fill" style="width: 0%;"></div>
+                </div>
+            </div>
+
+            <!-- Multi-Vessel Stenosis Breakdown (LAD, LCX, RCA) -->
+            <div class="vessels-grid">
+                <!-- LAD Card -->
+                <div class="vessel-card" id="card-lad" onclick="setExplanationTarget('LAD')">
+                    <div class="vessel-card-header">
+                        <span class="vessel-title">LAD</span>
+                        <span id="lad-badge" class="vessel-status-tag">--</span>
+                    </div>
+                    <div class="vessel-name-sub">Left Anterior Descending</div>
+                    <div class="vessel-pct-row">
+                        <span class="vessel-pct" id="lad-pct">--%</span>
+                        <span class="vessel-grade" id="lad-grade">--</span>
+                    </div>
+                    <div class="vessel-progress">
+                        <div id="lad-bar" class="vessel-fill" style="width: 0%;"></div>
+                    </div>
+                    <div class="territory-tag">Anterior Wall & Apex</div>
+                </div>
+
+                <!-- LCX Card -->
+                <div class="vessel-card" id="card-lcx" onclick="setExplanationTarget('LCX')">
+                    <div class="vessel-card-header">
+                        <span class="vessel-title">LCX</span>
+                        <span id="lcx-badge" class="vessel-status-tag">--</span>
+                    </div>
+                    <div class="vessel-name-sub">Left Circumflex Artery</div>
+                    <div class="vessel-pct-row">
+                        <span class="vessel-pct" id="lcx-pct">--%</span>
+                        <span class="vessel-grade" id="lcx-grade">--</span>
+                    </div>
+                    <div class="vessel-progress">
+                        <div id="lcx-bar" class="vessel-fill" style="width: 0%;"></div>
+                    </div>
+                    <div class="territory-tag">Lateral & Posterior Wall</div>
+                </div>
+
+                <!-- RCA Card -->
+                <div class="vessel-card" id="card-rca" onclick="setExplanationTarget('RCA')">
+                    <div class="vessel-card-header">
+                        <span class="vessel-title">RCA</span>
+                        <span id="rca-badge" class="vessel-status-tag">--</span>
+                    </div>
+                    <div class="vessel-name-sub">Right Coronary Artery</div>
+                    <div class="vessel-pct-row">
+                        <span class="vessel-pct" id="rca-pct">--%</span>
+                        <span class="vessel-grade" id="rca-grade">--</span>
+                    </div>
+                    <div class="vessel-progress">
+                        <div id="rca-bar" class="vessel-fill" style="width: 0%;"></div>
+                    </div>
+                    <div class="territory-tag">Inferior Wall & Nodes</div>
+                </div>
+            </div>
+
+            <!-- NEW: Multi-Disease Cardiovascular Pathology Suite -->
+            <div class="dashboard-card">
+                <div class="card-label">COMPREHENSIVE CARDIOVASCULAR PATHOLOGY SUITE</div>
+                <div class="multi-disease-grid" id="multi-disease-grid">
+                    <!-- Populated dynamically: STEMI, CHF, Arrhythmia, Valvular, LVH -->
+                </div>
+            </div>
+
+            <!-- NEW: Preventive Cardio Exercise & Rehab Prescription -->
+            <div class="dashboard-card exercise-rehab-card">
+                <div class="exercise-rehab-header">
+                    <div>
+                        <div class="card-label" style="color: #38bdf8;">PREVENTIVE CARDIO EXERCISE & REHAB SIMULATOR</div>
+                        <div class="controls-sub">Simulate physical exercise intervention to remodel coronary vessels & halt disease progression</div>
+                    </div>
+                    <button class="primary-btn pulse-glow" id="run-exercise-sim-btn">
+                        <span>▶</span> Simulate Exercise Therapy
+                    </button>
+                </div>
+
+                <div class="rehab-config-row">
+                    <div class="rehab-input-group">
+                        <label class="feature-label">Exercise Modality:</label>
+                        <select id="rehab-type-select" class="medical-select">
+                            <option value="jogging">Aerobic Jogging & Brisk Running (VO2 Max)</option>
+                            <option value="cycling">Endurance Cadence Cycling (Arterial Elasticity)</option>
+                            <option value="hiit">HIIT Metabolic Interval Cardio (Lipid Clearance)</option>
+                            <option value="yoga">Vagal Tone Breathwork & Restorative Yoga (BP Reduction)</option>
+                        </select>
+                    </div>
+                    <div class="rehab-input-group">
+                        <label class="feature-label">Intervention Duration:</label>
+                        <div class="slider-header">
+                            <span class="feature-val-badge" id="rehab-weeks-badge">12 Weeks</span>
+                        </div>
+                        <input type="range" id="rehab-weeks-slider" min="4" max="24" step="2" value="12" class="medical-slider">
+                    </div>
+                </div>
+
+                <!-- Exercise Simulation Outcome Results -->
+                <div id="rehab-results-panel" class="rehab-results-panel" style="display: none;">
+                    <div class="rehab-impact-banner">
+                        <span class="impact-title">Therapeutic CAD Risk Drop:</span>
+                        <span class="impact-val" id="rehab-risk-drop">-0.0%</span>
+                        <span class="impact-note" id="rehab-collateral-note">Collateral micro-vessels active!</span>
+                    </div>
+                    <div class="rehab-deltas-grid" id="rehab-deltas-grid">
+                        <!-- Populated dynamically -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- Explainable AI: SHAP Feature Attribution -->
+            <div class="dashboard-card">
+                <div class="shap-header">
+                    <div>
+                        <div class="card-label">CLINICAL EXPLAINABILITY (SHAP ATTRIBUTION)</div>
+                        <div class="shap-subtitle" id="shap-target-title">Overall Coronary Artery Disease (CAD)</div>
+                    </div>
+                    <div class="shap-tabs">
+                        <button class="shap-tab active" data-target="CAD">CAD</button>
+                        <button class="shap-tab" data-target="LAD">LAD</button>
+                        <button class="shap-tab" data-target="LCX">LCX</button>
+                        <button class="shap-tab" data-target="RCA">RCA</button>
+                    </div>
+                </div>
+                <div class="shap-scale-legend">
+                    <span class="legend-side-down">◀ Protective / Risk Decreasing</span>
+                    <span class="legend-center">Baseline</span>
+                    <span class="legend-side-up">Risk Elevating ▶</span>
+                </div>
+                <div id="shap-bars-container" class="shap-bars-container">
+                    <!-- Populated dynamically -->
+                </div>
+            </div>
+
+            <!-- Patient Physiological & Clinical Parameter Controls -->
+            <div class="dashboard-card">
+                <div class="controls-card-header">
+                    <div>
+                        <div class="card-label">PATIENT PHYSIOLOGICAL & BIOMARKER SIMULATOR</div>
+                        <div class="controls-sub">Modify clinical features to observe real-time 3D anatomical risk remodeling</div>
+                    </div>
+                    <button id="recalculate-btn" class="primary-btn">
+                        <span id="calc-spinner" class="spinner" style="display: none;"></span>
+                        Recalculate Risk
+                    </button>
+                </div>
+                <div id="clinical-forms-accordion" class="accordion-container">
+                    <!-- Populated dynamically -->
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Model Validation & Evaluation Modal -->
+    <div id="metrics-modal" class="modal-overlay" style="display: none;">
+        <div class="modal-box">
+            <div class="modal-header">
+                <h2>Cross-Validation & Test Evaluation Metrics</h2>
+                <button id="close-metrics-btn" class="close-btn">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="leakage-note">
+                    <strong>Target Leakage Prevention Verification:</strong> Features <code>Cath</code>, <code>LAD</code>, <code>LCX</code>, and <code>RCA</code> were strictly removed prior to feature processing and training. Models rely solely on independent demographics, physical examination, ECG, and laboratory/echocardiography findings.
+                </div>
+                <div id="metrics-content-table">
+                    <!-- Populated dynamically -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Vendor Libraries (Three.js & OrbitControls) -->
+    <script src="/static/vendor/three.min.js"></script>
+    <script src="/static/vendor/OrbitControls.js"></script>
+    <!-- Application Logic -->
+    <script src="/static/js/heart3d.js"></script>
+    <script src="/static/js/api.js"></script>
+    <script src="/static/js/dashboard.js"></script>
+</body>
+</html>

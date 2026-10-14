@@ -1,0 +1,899 @@
+{
+  "features": [
+    "Age",
+    "Weight",
+    "Length",
+    "Sex",
+    "BMI",
+    "DM",
+    "HTN",
+    "Current Smoker",
+    "EX-Smoker",
+    "FH",
+    "Obesity",
+    "CRF",
+    "CVA",
+    "Airway disease",
+    "Thyroid Disease",
+    "CHF",
+    "DLP",
+    "BP",
+    "PR",
+    "Edema",
+    "Weak Peripheral Pulse",
+    "Lung rales",
+    "Systolic Murmur",
+    "Diastolic Murmur",
+    "Typical Chest Pain",
+    "Dyspnea",
+    "Function Class",
+    "Atypical",
+    "Nonanginal",
+    "Exertional CP",
+    "LowTH Ang",
+    "Q Wave",
+    "St Elevation",
+    "St Depression",
+    "Tinversion",
+    "LVH",
+    "Poor R Progression",
+    "BBB",
+    "FBS",
+    "CR",
+    "TG",
+    "LDL",
+    "HDL",
+    "BUN",
+    "ESR",
+    "HB",
+    "K",
+    "Na",
+    "WBC",
+    "Lymph",
+    "Neut",
+    "PLT",
+    "EF-TTE",
+    "Region RWMA",
+    "VHD"
+  ],
+  "feature_types": {
+    "Age": "int64",
+    "Weight": "int64",
+    "Length": "int64",
+    "Sex": "int64",
+    "BMI": "float64",
+    "DM": "int64",
+    "HTN": "int64",
+    "Current Smoker": "int64",
+    "EX-Smoker": "int64",
+    "FH": "int64",
+    "Obesity": "int64",
+    "CRF": "int64",
+    "CVA": "int64",
+    "Airway disease": "int64",
+    "Thyroid Disease": "int64",
+    "CHF": "int64",
+    "DLP": "int64",
+    "BP": "int64",
+    "PR": "int64",
+    "Edema": "int64",
+    "Weak Peripheral Pulse": "int64",
+    "Lung rales": "int64",
+    "Systolic Murmur": "int64",
+    "Diastolic Murmur": "int64",
+    "Typical Chest Pain": "int64",
+    "Dyspnea": "int64",
+    "Function Class": "int64",
+    "Atypical": "int64",
+    "Nonanginal": "int64",
+    "Exertional CP": "int64",
+    "LowTH Ang": "int64",
+    "Q Wave": "int64",
+    "St Elevation": "int64",
+    "St Depression": "int64",
+    "Tinversion": "int64",
+    "LVH": "int64",
+    "Poor R Progression": "int64",
+    "BBB": "int64",
+    "FBS": "int64",
+    "CR": "float64",
+    "TG": "int64",
+    "LDL": "int64",
+    "HDL": "float64",
+    "BUN": "int64",
+    "ESR": "int64",
+    "HB": "float64",
+    "K": "float64",
+    "Na": "int64",
+    "WBC": "int64",
+    "Lymph": "int64",
+    "Neut": "int64",
+    "PLT": "int64",
+    "EF-TTE": "int64",
+    "Region RWMA": "int64",
+    "VHD": "int64"
+  },
+  "feature_defaults": {
+    "Age": 58.0,
+    "Weight": 74.0,
+    "Length": 165.0,
+    "Sex": 1.0,
+    "BMI": 26.775510204081634,
+    "DM": 0.0,
+    "HTN": 1.0,
+    "Current Smoker": 0.0,
+    "EX-Smoker": 0.0,
+    "FH": 0.0,
+    "Obesity": 1.0,
+    "CRF": 0.0,
+    "CVA": 0.0,
+    "Airway disease": 0.0,
+    "Thyroid Disease": 0.0,
+    "CHF": 0.0,
+    "DLP": 0.0,
+    "BP": 130.0,
+    "PR": 70.0,
+    "Edema": 0.0,
+    "Weak Peripheral Pulse": 0.0,
+    "Lung rales": 0.0,
+    "Systolic Murmur": 0.0,
+    "Diastolic Murmur": 0.0,
+    "Typical Chest Pain": 1.0,
+    "Dyspnea": 0.0,
+    "Function Class": 0.0,
+    "Atypical": 0.0,
+    "Nonanginal": 0.0,
+    "Exertional CP": 0.0,
+    "LowTH Ang": 0.0,
+    "Q Wave": 0.0,
+    "St Elevation": 0.0,
+    "St Depression": 0.0,
+    "Tinversion": 0.0,
+    "LVH": 0.0,
+    "Poor R Progression": 0.0,
+    "BBB": 0.0,
+    "FBS": 98.0,
+    "CR": 1.0,
+    "TG": 122.0,
+    "LDL": 100.0,
+    "HDL": 39.0,
+    "BUN": 16.0,
+    "ESR": 15.0,
+    "HB": 13.2,
+    "K": 4.2,
+    "Na": 141.0,
+    "WBC": 7100.0,
+    "Lymph": 32.0,
+    "Neut": 60.0,
+    "PLT": 210.0,
+    "EF-TTE": 50.0,
+    "Region RWMA": 0.0,
+    "VHD": 1.0
+  },
+  "feature_ranges": {
+    "Age": {
+      "min": 30.0,
+      "max": 86.0
+    },
+    "Weight": {
+      "min": 48.0,
+      "max": 120.0
+    },
+    "Length": {
+      "min": 140.0,
+      "max": 188.0
+    },
+    "Sex": {
+      "min": 0.0,
+      "max": 1.0
+    },
+    "BMI": {
+      "min": 18.115412710007302,
+      "max": 40.90065778377467
+    },
+    "DM": {
+      "min": 0.0,
+      "max": 1.0
+    },
+    "HTN": {
+      "min": 0.0,
+      "max": 1.0
+    },
+    "Current Smoker": {
+      "min": 0.0,
+      "max": 1.0
+    },
+    "EX-Smoker": {
+      "min": 0.0,
+      "max": 1.0
+    },
+    "FH": {
+      "min": 0.0,
+      "max": 1.0
+    },
+    "Obesity": {
+      "min": 0.0,
+      "max": 1.0
+    },
+    "CRF": {
+      "min": 0.0,
+      "max": 1.0
+    },
+    "CVA": {
+      "min": 0.0,
+      "max": 1.0
+    },
+    "Airway disease": {
+      "min": 0.0,
+      "max": 1.0
+    },
+    "Thyroid Disease": {
+      "min": 0.0,
+      "max": 1.0
+    },
+    "CHF": {
+      "min": 0.0,
+      "max": 1.0
+    },
+    "DLP": {
+      "min": 0.0,
+      "max": 1.0
+    },
+    "BP": {
+      "min": 90.0,
+      "max": 190.0
+    },
+    "PR": {
+      "min": 50.0,
+      "max": 110.0
+    },
+    "Edema": {
+      "min": 0.0,
+      "max": 1.0
+    },
+    "Weak Peripheral Pulse": {
+      "min": 0.0,
+      "max": 1.0
+    },
+    "Lung rales": {
+      "min": 0.0,
+      "max": 1.0
+    },
+    "Systolic Murmur": {
+      "min": 0.0,
+      "max": 1.0
+    },
+    "Diastolic Murmur": {
+      "min": 0.0,
+      "max": 1.0
+    },
+    "Typical Chest Pain": {
+      "min": 0.0,
+      "max": 1.0
+    },
+    "Dyspnea": {
+      "min": 0.0,
+      "max": 1.0
+    },
+    "Function Class": {
+      "min": 0.0,
+      "max": 3.0
+    },
+    "Atypical": {
+      "min": 0.0,
+      "max": 1.0
+    },
+    "Nonanginal": {
+      "min": 0.0,
+      "max": 1.0
+    },
+    "Exertional CP": {
+      "min": 0.0,
+      "max": 0.0
+    },
+    "LowTH Ang": {
+      "min": 0.0,
+      "max": 1.0
+    },
+    "Q Wave": {
+      "min": 0.0,
+      "max": 1.0
+    },
+    "St Elevation": {
+      "min": 0.0,
+      "max": 1.0
+    },
+    "St Depression": {
+      "min": 0.0,
+      "max": 1.0
+    },
+    "Tinversion": {
+      "min": 0.0,
+      "max": 1.0
+    },
+    "LVH": {
+      "min": 0.0,
+      "max": 1.0
+    },
+    "Poor R Progression": {
+      "min": 0.0,
+      "max": 1.0
+    },
+    "BBB": {
+      "min": 0.0,
+      "max": 2.0
+    },
+    "FBS": {
+      "min": 62.0,
+      "max": 400.0
+    },
+    "CR": {
+      "min": 0.5,
+      "max": 2.2
+    },
+    "TG": {
+      "min": 37.0,
+      "max": 1050.0
+    },
+    "LDL": {
+      "min": 18.0,
+      "max": 232.0
+    },
+    "HDL": {
+      "min": 15.9,
+      "max": 111.0
+    },
+    "BUN": {
+      "min": 6.0,
+      "max": 52.0
+    },
+    "ESR": {
+      "min": 1.0,
+      "max": 90.0
+    },
+    "HB": {
+      "min": 8.9,
+      "max": 17.6
+    },
+    "K": {
+      "min": 3.0,
+      "max": 6.6
+    },
+    "Na": {
+      "min": 128.0,
+      "max": 156.0
+    },
+    "WBC": {
+      "min": 3700.0,
+      "max": 18000.0
+    },
+    "Lymph": {
+      "min": 7.0,
+      "max": 60.0
+    },
+    "Neut": {
+      "min": 32.0,
+      "max": 89.0
+    },
+    "PLT": {
+      "min": 25.0,
+      "max": 742.0
+    },
+    "EF-TTE": {
+      "min": 15.0,
+      "max": 60.0
+    },
+    "Region RWMA": {
+      "min": 0.0,
+      "max": 4.0
+    },
+    "VHD": {
+      "min": 0.0,
+      "max": 3.0
+    }
+  },
+  "global_importance_cad": [
+    {
+      "feature": "Typical Chest Pain",
+      "importance": 1.0534759362394601
+    },
+    {
+      "feature": "Region RWMA",
+      "importance": 0.5993827360587092
+    },
+    {
+      "feature": "Age",
+      "importance": 0.5772714711612095
+    },
+    {
+      "feature": "ESR",
+      "importance": 0.5535564048300932
+    },
+    {
+      "feature": "TG",
+      "importance": 0.5003854567010866
+    },
+    {
+      "feature": "Atypical",
+      "importance": 0.4756062274228827
+    },
+    {
+      "feature": "Tinversion",
+      "importance": 0.4751562865956484
+    },
+    {
+      "feature": "DM",
+      "importance": 0.4564985873481665
+    },
+    {
+      "feature": "FH",
+      "importance": 0.4363539119865387
+    },
+    {
+      "feature": "St Elevation",
+      "importance": 0.38002308008188795
+    },
+    {
+      "feature": "PR",
+      "importance": 0.3793359145022355
+    },
+    {
+      "feature": "Dyspnea",
+      "importance": 0.37597011658910534
+    },
+    {
+      "feature": "HTN",
+      "importance": 0.36659928700341904
+    },
+    {
+      "feature": "EF-TTE",
+      "importance": 0.3377984374459795
+    },
+    {
+      "feature": "BP",
+      "importance": 0.3347526064523287
+    },
+    {
+      "feature": "Nonanginal",
+      "importance": 0.3323330264633756
+    },
+    {
+      "feature": "VHD",
+      "importance": 0.3285790979270896
+    },
+    {
+      "feature": "Sex",
+      "importance": 0.29776860574909514
+    },
+    {
+      "feature": "LDL",
+      "importance": 0.29369095135728884
+    },
+    {
+      "feature": "Poor R Progression",
+      "importance": 0.2598516924444317
+    }
+  ],
+  "metrics_summary": {
+    "CAD": {
+      "best_model": "LogisticRegression",
+      "metrics": {
+        "cv_roc_auc_mean": 0.9258010896666358,
+        "cv_accuracy_mean": 0.8635204081632653,
+        "cv_f1_mean": 0.8993868706424684,
+        "test_accuracy": 0.8032786885245902,
+        "test_precision": 0.8974358974358975,
+        "test_recall": 0.813953488372093,
+        "test_f1": 0.8536585365853658,
+        "test_roc_auc": 0.8940568475452196,
+        "confusion_matrix": [
+          [
+            14,
+            4
+          ],
+          [
+            8,
+            35
+          ]
+        ]
+      },
+      "all_candidates": {
+        "RandomForest": {
+          "cv_roc_auc_mean": 0.9310093268076463,
+          "cv_accuracy_mean": 0.8716836734693878,
+          "cv_f1_mean": 0.9074136321195144,
+          "test_accuracy": 0.8688524590163934,
+          "test_precision": 0.8888888888888888,
+          "test_recall": 0.9302325581395349,
+          "test_f1": 0.9090909090909091,
+          "test_roc_auc": 0.8591731266149871,
+          "confusion_matrix": [
+            [
+              13,
+              5
+            ],
+            [
+              3,
+              40
+            ]
+          ]
+        },
+        "XGBoost": {
+          "cv_roc_auc_mean": 0.9192390802474837,
+          "cv_accuracy_mean": 0.8635204081632653,
+          "cv_f1_mean": 0.9055364754597491,
+          "test_accuracy": 0.819672131147541,
+          "test_precision": 0.8333333333333334,
+          "test_recall": 0.9302325581395349,
+          "test_f1": 0.8791208791208791,
+          "test_roc_auc": 0.8565891472868217,
+          "confusion_matrix": [
+            [
+              10,
+              8
+            ],
+            [
+              3,
+              40
+            ]
+          ]
+        },
+        "GradientBoosting": {
+          "cv_roc_auc_mean": 0.9195724443623604,
+          "cv_accuracy_mean": 0.8634353741496599,
+          "cv_f1_mean": 0.9050430073410395,
+          "test_accuracy": 0.819672131147541,
+          "test_precision": 0.8478260869565217,
+          "test_recall": 0.9069767441860465,
+          "test_f1": 0.8764044943820225,
+          "test_roc_auc": 0.8436692506459947,
+          "confusion_matrix": [
+            [
+              11,
+              7
+            ],
+            [
+              4,
+              39
+            ]
+          ]
+        },
+        "LogisticRegression": {
+          "cv_roc_auc_mean": 0.9258010896666358,
+          "cv_accuracy_mean": 0.8635204081632653,
+          "cv_f1_mean": 0.8993868706424684,
+          "test_accuracy": 0.8032786885245902,
+          "test_precision": 0.8974358974358975,
+          "test_recall": 0.813953488372093,
+          "test_f1": 0.8536585365853658,
+          "test_roc_auc": 0.8940568475452196,
+          "confusion_matrix": [
+            [
+              14,
+              4
+            ],
+            [
+              8,
+              35
+            ]
+          ]
+        }
+      }
+    },
+    "LAD": {
+      "best_model": "GradientBoosting",
+      "metrics": {
+        "cv_roc_auc_mean": 0.8361868032149339,
+        "cv_accuracy_mean": 0.7852040816326531,
+        "cv_f1_mean": 0.8221763539211455,
+        "test_accuracy": 0.6885245901639344,
+        "test_precision": 0.7142857142857143,
+        "test_recall": 0.7352941176470589,
+        "test_f1": 0.7246376811594203,
+        "test_roc_auc": 0.809368191721133,
+        "confusion_matrix": [
+          [
+            17,
+            10
+          ],
+          [
+            9,
+            25
+          ]
+        ]
+      },
+      "all_candidates": {
+        "RandomForest": {
+          "cv_roc_auc_mean": 0.8607907700285196,
+          "cv_accuracy_mean": 0.7974489795918367,
+          "cv_f1_mean": 0.8293361678464265,
+          "test_accuracy": 0.6885245901639344,
+          "test_precision": 0.7027027027027027,
+          "test_recall": 0.7647058823529411,
+          "test_f1": 0.7323943661971831,
+          "test_roc_auc": 0.7701525054466232,
+          "confusion_matrix": [
+            [
+              16,
+              11
+            ],
+            [
+              8,
+              26
+            ]
+          ]
+        },
+        "XGBoost": {
+          "cv_roc_auc_mean": 0.8274630541871921,
+          "cv_accuracy_mean": 0.7562925170068027,
+          "cv_f1_mean": 0.7993067997815485,
+          "test_accuracy": 0.6885245901639344,
+          "test_precision": 0.6923076923076923,
+          "test_recall": 0.7941176470588235,
+          "test_f1": 0.7397260273972602,
+          "test_roc_auc": 0.7941176470588235,
+          "confusion_matrix": [
+            [
+              15,
+              12
+            ],
+            [
+              7,
+              27
+            ]
+          ]
+        },
+        "GradientBoosting": {
+          "cv_roc_auc_mean": 0.8361868032149339,
+          "cv_accuracy_mean": 0.7852040816326531,
+          "cv_f1_mean": 0.8221763539211455,
+          "test_accuracy": 0.6885245901639344,
+          "test_precision": 0.7142857142857143,
+          "test_recall": 0.7352941176470589,
+          "test_f1": 0.7246376811594203,
+          "test_roc_auc": 0.809368191721133,
+          "confusion_matrix": [
+            [
+              17,
+              10
+            ],
+            [
+              9,
+              25
+            ]
+          ]
+        },
+        "LogisticRegression": {
+          "cv_roc_auc_mean": 0.8183192896033186,
+          "cv_accuracy_mean": 0.7232993197278911,
+          "cv_f1_mean": 0.7549639093165442,
+          "test_accuracy": 0.7049180327868853,
+          "test_precision": 0.7222222222222222,
+          "test_recall": 0.7647058823529411,
+          "test_f1": 0.7428571428571429,
+          "test_roc_auc": 0.8159041394335512,
+          "confusion_matrix": [
+            [
+              17,
+              10
+            ],
+            [
+              8,
+              26
+            ]
+          ]
+        }
+      }
+    },
+    "LCX": {
+      "best_model": "RandomForest",
+      "metrics": {
+        "cv_roc_auc_mean": 0.7522034012233649,
+        "cv_accuracy_mean": 0.6941326530612245,
+        "cv_f1_mean": 0.5977032188796895,
+        "test_accuracy": 0.6885245901639344,
+        "test_precision": 0.64,
+        "test_recall": 0.6153846153846154,
+        "test_f1": 0.6274509803921569,
+        "test_roc_auc": 0.7208791208791208,
+        "confusion_matrix": [
+          [
+            26,
+            9
+          ],
+          [
+            10,
+            16
+          ]
+        ]
+      },
+      "all_candidates": {
+        "RandomForest": {
+          "cv_roc_auc_mean": 0.7522034012233649,
+          "cv_accuracy_mean": 0.6941326530612245,
+          "cv_f1_mean": 0.5977032188796895,
+          "test_accuracy": 0.6885245901639344,
+          "test_precision": 0.64,
+          "test_recall": 0.6153846153846154,
+          "test_f1": 0.6274509803921569,
+          "test_roc_auc": 0.7208791208791208,
+          "confusion_matrix": [
+            [
+              26,
+              9
+            ],
+            [
+              10,
+              16
+            ]
+          ]
+        },
+        "XGBoost": {
+          "cv_roc_auc_mean": 0.7449895812327754,
+          "cv_accuracy_mean": 0.7272108843537415,
+          "cv_f1_mean": 0.6008453765046058,
+          "test_accuracy": 0.6885245901639344,
+          "test_precision": 0.6842105263157895,
+          "test_recall": 0.5,
+          "test_f1": 0.5777777777777777,
+          "test_roc_auc": 0.7164835164835165,
+          "confusion_matrix": [
+            [
+              29,
+              6
+            ],
+            [
+              13,
+              13
+            ]
+          ]
+        },
+        "GradientBoosting": {
+          "cv_roc_auc_mean": 0.7335262485716206,
+          "cv_accuracy_mean": 0.6778061224489795,
+          "cv_f1_mean": 0.5424265824265824,
+          "test_accuracy": 0.6885245901639344,
+          "test_precision": 0.6666666666666666,
+          "test_recall": 0.5384615384615384,
+          "test_f1": 0.5957446808510638,
+          "test_roc_auc": 0.6637362637362638,
+          "confusion_matrix": [
+            [
+              28,
+              7
+            ],
+            [
+              12,
+              14
+            ]
+          ]
+        },
+        "LogisticRegression": {
+          "cv_roc_auc_mean": 0.6624104322107952,
+          "cv_accuracy_mean": 0.5994897959183674,
+          "cv_f1_mean": 0.5079649033137406,
+          "test_accuracy": 0.6229508196721312,
+          "test_precision": 0.56,
+          "test_recall": 0.5384615384615384,
+          "test_f1": 0.5490196078431373,
+          "test_roc_auc": 0.6505494505494505,
+          "confusion_matrix": [
+            [
+              24,
+              11
+            ],
+            [
+              12,
+              14
+            ]
+          ]
+        }
+      }
+    },
+    "RCA": {
+      "best_model": "LogisticRegression",
+      "metrics": {
+        "cv_roc_auc_mean": 0.7076776231767157,
+        "cv_accuracy_mean": 0.6448979591836734,
+        "cv_f1_mean": 0.5669058485489809,
+        "test_accuracy": 0.7049180327868853,
+        "test_precision": 0.5416666666666666,
+        "test_recall": 0.65,
+        "test_f1": 0.5909090909090909,
+        "test_roc_auc": 0.7536585365853659,
+        "confusion_matrix": [
+          [
+            30,
+            11
+          ],
+          [
+            7,
+            13
+          ]
+        ]
+      },
+      "all_candidates": {
+        "RandomForest": {
+          "cv_roc_auc_mean": 0.7117456476440143,
+          "cv_accuracy_mean": 0.6364795918367346,
+          "cv_f1_mean": 0.5486927796827367,
+          "test_accuracy": 0.7049180327868853,
+          "test_precision": 0.5416666666666666,
+          "test_recall": 0.65,
+          "test_f1": 0.5909090909090909,
+          "test_roc_auc": 0.7219512195121951,
+          "confusion_matrix": [
+            [
+              30,
+              11
+            ],
+            [
+              7,
+              13
+            ]
+          ]
+        },
+        "XGBoost": {
+          "cv_roc_auc_mean": 0.7115439940848289,
+          "cv_accuracy_mean": 0.669812925170068,
+          "cv_f1_mean": 0.5385199240986717,
+          "test_accuracy": 0.639344262295082,
+          "test_precision": 0.4444444444444444,
+          "test_recall": 0.4,
+          "test_f1": 0.42105263157894735,
+          "test_roc_auc": 0.6865853658536586,
+          "confusion_matrix": [
+            [
+              31,
+              10
+            ],
+            [
+              12,
+              8
+            ]
+          ]
+        },
+        "GradientBoosting": {
+          "cv_roc_auc_mean": 0.7138603213013377,
+          "cv_accuracy_mean": 0.6611394557823129,
+          "cv_f1_mean": 0.5232518461930227,
+          "test_accuracy": 0.6721311475409836,
+          "test_precision": 0.5,
+          "test_recall": 0.45,
+          "test_f1": 0.47368421052631576,
+          "test_roc_auc": 0.6743902439024391,
+          "confusion_matrix": [
+            [
+              32,
+              9
+            ],
+            [
+              11,
+              9
+            ]
+          ]
+        },
+        "LogisticRegression": {
+          "cv_roc_auc_mean": 0.7076776231767157,
+          "cv_accuracy_mean": 0.6448979591836734,
+          "cv_f1_mean": 0.5669058485489809,
+          "test_accuracy": 0.7049180327868853,
+          "test_precision": 0.5416666666666666,
+          "test_recall": 0.65,
+          "test_f1": 0.5909090909090909,
+          "test_roc_auc": 0.7536585365853659,
+          "confusion_matrix": [
+            [
+              30,
+              11
+            ],
+            [
+              7,
+              13
+            ]
+          ]
+        }
+      }
+    }
+  }
+}
